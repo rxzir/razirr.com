@@ -13,6 +13,7 @@ const work = defineCollection({
       value: z.string(),
     }),
     order: z.number(),
+    featured: z.boolean().default(false),
   }),
 });
 

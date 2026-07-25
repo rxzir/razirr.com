@@ -7,34 +7,78 @@ outcome:
   label: "UK population without a pension plan"
   value: "40%"
 order: 5
+featured: false
 ---
+
+import { Image } from "astro:assets";
+import pensionAppHero from "../../assets/work/pension-app/pension-app-hero.jpg";
+import pensionAppDashboard from "../../assets/work/pension-app/pension-app-dashboard.png";
+import pensionAppAccounts from "../../assets/work/pension-app/pension-app-accounts.png";
+import pensionAppGrow from "../../assets/work/pension-app/pension-app-grow.png";
+import pensionAppLearn from "../../assets/work/pension-app/pension-app-learn.png";
+import pensionAppIa from "../../assets/work/pension-app/pension-app-information-architecture.png";
+import pensionAppUserflow from "../../assets/work/pension-app/pension-app-userflow.png";
+import pensionAppPersonas1 from "../../assets/work/pension-app/pension-app-personas-1.png";
+import pensionAppPersonas2 from "../../assets/work/pension-app/pension-app-personas-2.png";
+
+<Image src={pensionAppHero} alt="Pension App — overview" />
 
 ## Diving into the problem…
 
-Our team embarked on a thorough investigative journey to uncover the underlying causes contributing to individuals' lack of preparedness for retirement. Through a combination of in-depth interviews and extensive literature review, we dissected prevailing factors such as inadequate financial education, limited awareness of pension schemes, evolving economic landscapes, and varying personal saving habits.
+Our team embarked on a thorough investigative journey to uncover the underlying causes contributing to individuals' lack of preparedness for retirement.
 
-Key factors identified: Financial Illiteracy, Complex Pension Schemes, Low Clarity, Lack of Trust.
+Through a combination of in-depth interviews and extensive literature review, we dissected prevailing factors such as inadequate financial education, limited awareness of pension schemes, evolving economic landscapes, and varying personal saving habits.
+
+### 40%
+
+of the population doesn't have any pension plan
+
+### Financial Illiteracy<br />Complex Pension Schemes<br />Low Clarity<br />Lack of Trust
+
+are some of factors affecting unprepared retirement
 
 ## How we solved it…
 
 We designed an application that greets the user with an overall picture of their retirement plan on the Dashboard. Other tabs offer detailed insights into their linked accounts, personalised investment recommendations, and a knowledge base to enhance their financial understanding.
 
-{/* PLACEHOLDER IMAGE: Dashboard, Accounts, Grow, Learn tabs – add real file at /images/work/pension-app/1-tabs.jpg */}
-![Placeholder — Dashboard, Accounts, Grow, Learn tabs](/images/work/pension-app/1-tabs.jpg)
+## Dashoard
+
+<Image src={pensionAppDashboard} alt="Pension App — Dashboard" />
+
+## Accounts
+
+<Image src={pensionAppAccounts} alt="Pension App — Accounts" />
+
+## Grow
+
+<Image src={pensionAppGrow} alt="Pension App — Grow" />
+
+## Learn
+
+<Image src={pensionAppLearn} alt="Pension App — Learn" />
 
 ## More on the structure…
 
 The application's structure revolves around a user-centric design aimed at simplifying retirement planning. At its core lies the Dashboard, providing an at-a-glance overview of the user's retirement plan. It then branches out to more granular parts where the user can have complete control over their plan and investments.
 
-{/* PLACEHOLDER IMAGE: Information Architecture and Userflow diagrams – add real file at /images/work/pension-app/2-ia-userflow.jpg */}
-![Placeholder — Information Architecture and Userflow diagrams](/images/work/pension-app/2-ia-userflow.jpg)
+## Information Architecture
+
+<Image src={pensionAppIa} alt="Pension App — Information Architecture" />
+
+## Userflow
+
+<Image src={pensionAppUserflow} alt="Pension App — Userflow" />
 
 ## Behind the curtains…
 
 The team spent numerous days researching and interviewing the audience to construct a very detailed problem statement. This gave me a concrete direction to design the application.
 
-{/* PLACEHOLDER IMAGE: User Personas, compiled by Gianluca A – add real file at /images/work/pension-app/3-user-personas.jpg */}
-![Placeholder — User Personas, compiled by Gianluca A](/images/work/pension-app/3-user-personas.jpg)
+## User Personas
+
+<Image src={pensionAppPersonas1} alt="Pension App — User Personas" />
+<Image src={pensionAppPersonas2} alt="Pension App — User Personas" />
+
+Compiled by Gianluca A
 
 ## Wrapping up…
 

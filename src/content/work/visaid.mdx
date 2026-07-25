@@ -2,57 +2,154 @@
 title: "VisAid"
 role: "Research | Design | Testing"
 year: 2023
-summary: "An augmented reality application designed to assist individuals with profound hearing loss by addressing communication barriers in noisy environments."
+summary: "VisAid is an innovative Augmented Reality (AR) application created to test how AR can assist individuals with profound hearing loss. This project served as the final thesis for my Masters in User Experience Engineering."
 outcome:
   label: "Participants who'd use it again"
   value: "10 of 12"
 order: 3
+featured: false
 ---
 
-VisAid is an innovative Augmented Reality (AR) application created to test how AR can assist individuals with profound hearing loss. This project served as the final thesis for my Masters in User Experience Engineering.
+import { Image } from "astro:assets";
+import visaidHero from "../../assets/work/visaid/visaid-hero.jpeg";
+import visaidUserflow from "../../assets/work/visaid/visaid-userflow.png";
+import visaidSketch1 from "../../assets/work/visaid/visaid-sketch-1.png";
+import visaidSketch2 from "../../assets/work/visaid/visaid-sketch-2.png";
+import visaidUiElements from "../../assets/work/visaid/visaid-ui-elements.jpeg";
+import visaidStudySession1 from "../../assets/work/visaid/visaid-study-session-1.jpeg";
+import visaidStudySession2 from "../../assets/work/visaid/visaid-study-session-2.jpeg";
 
-In the UK, a significant portion of people who could benefit from hearing aids don't use them. This is because regular hearing aids struggle in busy environments or with multiple speakers, and some people feel self-conscious about using them. This introduces a huge language barrier as only a few people know and use British Sign Language (BSL).
+<Image src={visaidHero} alt="VisAid — overview" />
 
-After digging deep into research and studies, I found a big challenge for people with hearing difficulties: the Cocktail-Party Problem. This happens when there's a lot of noise and multiple people talking, making it hard for regular hearing aids to figure out who's speaking. That's where Augmented Reality comes in. To prove its potential, I came up with a concept app with some special features:
+## Here is some context…
 
-- **Live Captioning** — displays live speech to text of the user in focus
-- **Face Focus** — highlights the speaker in focus in the user's view
-- **Danger Alerts** — alert the user of sirens and bells
-- **Modes** — gives the freedom to switch features
+In the UK, a significant portion of people who could benefit from hearing aids don't use them. This is because regular hearing aids struggle in busy environments or with multiple speakers, and some people feel self-conscious about using them.
 
-Designing a straightforward and user-friendly interface for a rather new technology posed a challenge. Leveraging insights from game design and mixed reality interfaces, I conducted an iterative process to refine the application's designs.
+This introduces a huge language barrier as only a few people know and use British Sign Language (BSL).
 
-{/* PLACEHOLDER IMAGE: Userflow of the Application diagram – add real file at /images/work/visaid/1-userflow.jpg */}
-![Placeholder — Userflow of the Application](/images/work/visaid/1-userflow.jpg)
+### 900,000
 
-{/* PLACEHOLDER IMAGE: Initial UI sketches – add real file at /images/work/visaid/2-sketches.jpg */}
-![Placeholder — Initial UI sketches](/images/work/visaid/2-sketches.jpg)
+Deaf in the UK
 
-{/* PLACEHOLDER IMAGE: UI Elements of the Application – add real file at /images/work/visaid/3-ui-elements.jpg */}
-![Placeholder — UI Elements of the Application](/images/work/visaid/3-ui-elements.jpg)
+### 1/3
 
-{/* PLACEHOLDER IMAGE: Mock videos – add real file at /images/work/visaid/4-mock-videos.jpg */}
-![Placeholder — Mock videos](/images/work/visaid/4-mock-videos.jpg)
+Only 1/3 use Hearing Aids
 
-{/* PLACEHOLDER IMAGE: iPad Prototype – add real file at /images/work/visaid/5-ipad-prototype.jpg */}
-![Placeholder — iPad Prototype](/images/work/visaid/5-ipad-prototype.jpg)
+### 151,000
+
+BSL Users
+
+## How I went about solving it…
+
+After digging deep into research and studies, I found a big challenge for people with hearing difficulties: the Cocktail-Party Problem. This happens when there's a lot of noise and multiple people talking, making it hard for regular hearing aids to figure out who's speaking.
+
+That's where Augmented Reality comes in. To prove its potential, I came up with a concept app with some special features.
+
+Live Captioning
+
+Displays live speech to text of the user in focus
+
+Face Focus
+
+Highlights the speaker in focus in the user's view
+
+Danger Alerts
+
+Alert the user of sirens and bells
+
+Modes
+
+Gives the freedom to switch features
+
+## Getting into design…
+
+Designing a straightforward and user-friendly interface for a rather new technology posed a challenge. Leveraging insights from game design and mixed reality interfaces, I conducted on an iterative process to refine the application's designs.
+
+<Image src={visaidUserflow} alt="VisAid — Userflow of the Application" />
+
+Userflow of the Application
+
+<Image src={visaidSketch1} alt="VisAid — Initial UI sketches" />
+<Image src={visaidSketch2} alt="VisAid — Initial UI sketches" />
+
+Initial UI sketches
+
+<Image src={visaidUiElements} alt="VisAid — UI Elements of the Application" />
+
+UI Elements of the Application
+
+<img src="/work/visaid/visaid-mock-video-1.gif" alt="VisAid — Mock videos" />
+<img src="/work/visaid/visaid-mock-video-2.gif" alt="VisAid — Mock videos" />
+
+Mock videos
+
+<img src="/work/visaid/visaid-ipad-prototype.gif" alt="VisAid — iPad Prototype" />
+
+iPad Prototype
+
+## It is time for some testing…
 
 With the designs and materials produced above, the application underwent testing in two phases. Initially, a group of nine participants with normal hearing assessed its usability. Subsequently, a study involving three Deaf participants was conducted to evaluate the application's value for this specific user group.
 
-Study 1 focused on application usability with 9 NH participants using questionnaire, prototype demo, usability testing, and feedback methods.
+## Study 1
 
-Study 2 focused on application effectiveness with 3 DHH participants using questionnaire, prototype demo, PPT lead study, usability testing, feedback, and study session methods.
+Focusing on Application Usability
+
+### 9 Participants
+
+NH Participants
+
+Questionnaire
+
+Prototype Demo
+
+Usability Testing
+
+Feedback
+
+## Study 2
+
+Focusing on Application Effectiveness
+
+### 3 Participants
+
+DHH Participants
+
+Questionnaire
+
+Prototype Demo
+
+PPT Lead Study
+
+Usability Testing
+
+Feedback
+
+<Image src={visaidStudySession1} alt="VisAid — Study session" />
+<Image src={visaidStudySession2} alt="VisAid — Study session" />
+
+Study session
+
+## And the result…
 
 The app was an immediate success with the Deaf participants as they were eager to try out the finished application. Captioning was the most successful feature of the application, especially with the speaker highlight. There were a few design suggestions that popped up during the study.
 
+## Results
+
+Deaf Participants
+
+Most useful feature
+
+Captioning
+
+Danger Alerts
+
+Others
+
+10 of 12 agreed they would use the application in the future.
+
+Only 50% of the participants feel that 'Modes' are useful.
+
+## So much more to be done…
+
 Even though the design-centered investigation may have indicated that AR could be an excellent solution to address some key issues with hearing aids, comprehensive research must be carried out using a prototype application in an AR head-mounted display to gather conclusive proof of the app's effectiveness. A substantial advancement in hardware technology is also necessary to reduce the form factor to resemble traditional glasses, preventing self-stigmatization and promoting user acceptance.
-
-## By the numbers
-
-- Deaf participants in Study 2: 3
-- NH participants in Study 1: 9
-- UK Deaf population: 900,000
-- Hearing aid usage rate: 1/3
-- BSL users in UK: 151,000
-- Agreement to future use: 10 of 12
-- "Modes" feature usefulness: 50%

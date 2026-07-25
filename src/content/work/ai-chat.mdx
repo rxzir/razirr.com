@@ -7,6 +7,7 @@ outcome:
   label: "Daily active users"
   value: "14m+"
 order: 1
+featured: true
 ---
 
 import { Image } from "astro:assets";
@@ -16,15 +17,29 @@ import aiChatFeature1 from "../../assets/work/ai-chat/ai-chat-feature-1.png";
 import aiChatFeature2 from "../../assets/work/ai-chat/ai-chat-feature-2.png";
 import aiChatFeature3 from "../../assets/work/ai-chat/ai-chat-feature-3.png";
 
+The in-app assistant that helps millions of investors get answers instantly, without leaving the platform. Digs into the portfolio and gives personalised and real-time insights
+
 <video autoplay muted loop playsinline>
   <source src="/work/ai-chat/ai-chat-hero.mp4" type="video/mp4" />
 </video>
 
-The in-app assistant that helps millions of investors get answers instantly, without leaving the platform. Digs into the portfolio and gives personalised and real-time insights.
+### 3m+
+
+users on launch
+
+### 10 days
+
+from idea to live
+
+### 14m+
+
+daily active users
+
+## Why did we need this…
 
 Users from first-time investors to active traders were regularly leaving the app to understand what was happening with their holdings. A portfolio going down with no explanation, or a stock moving with no context, creates anxiety and erodes trust. AI Chatbot let users ask, in their own words, what's going on and get an answer grounded in their actual portfolio.
 
-<Image src={aiChatProblem} alt="AI Chatbot — portfolio view showing the problem the assistant addresses" />
+<Image src={aiChatProblem} alt="AI Chatbot — portfolio view" />
 
 ## Multiple Entry Points
 
@@ -34,7 +49,7 @@ Where you enter changes everything, the questions on a stock page ask about that
 
 Four curated prompts signal what the AI can do and reduce the friction of a first question. They set the right mental model before the user commits to asking anything.
 
-<Image src={aiChatEmptyState} alt="AI Chatbot — guided empty state with curated prompt suggestions" />
+<Image src={aiChatEmptyState} alt="AI Chatbot — guided empty state" />
 
 <video autoplay muted loop playsinline>
   <source src="/work/ai-chat/ai-chat-empty-state-demo.mp4" type="video/mp4" />
@@ -44,18 +59,20 @@ Four curated prompts signal what the AI can do and reduce the friction of a firs
 
 While the AI responds, a collapsible "thinking" panel shows the steps it took; fetching news, identifying catalysts, forming an answer. In a financial product, trust isn't a soft metric.
 
-Additional features: rich linked text, source listing, chat history.
+## And much more…
 
-<Image src={aiChatFeature1} alt="AI Chatbot — feature detail, chat interaction" />
-<Image src={aiChatFeature2} alt="AI Chatbot — feature detail, chat interaction" />
-<Image src={aiChatFeature3} alt="AI Chatbot — feature detail, chat interaction" />
+<Image src={aiChatFeature1} alt="AI Chatbot — rich linked text" />
 
-## By the numbers
+Rich linked text
 
-- 3m+ users on launch
-- 10 days from idea to live
-- 14m+ daily active users
+<Image src={aiChatFeature2} alt="AI Chatbot — source listing" />
 
-## Looking ahead
+Source listing
 
-AI Analysis launched as an experimental feature. It was the first time AI had been integrated into the core Trading 212 experience. The design patterns it established like conversation UI, source attribution, and the thinking panel are already forming the foundation for the next iteration: instrument tagging via `$` mention in the input, allowing users to bring any stock into the conversation mid-chat.
+<Image src={aiChatFeature3} alt="AI Chatbot — chat history" />
+
+Chat history
+
+## So, what's next…
+
+AI Analysis launched as an experimental feature. It was the first time AI had been integrated into the core Trading 212 experience. The design patterns it established like conversation UI, source attribution, and the thinking panel are already forming the foundation for the next iteration: instrument tagging via $ mention in the input, allowing users to bring any stock into the conversation mid-chat.

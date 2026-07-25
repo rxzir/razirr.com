@@ -1,0 +1,110 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+
+const work = (await getCollection("work")).sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+
+<Base title="All Work" description="Every project, including work not featured on the homepage.">
+  <section class="work" aria-label="All work">
+    <h1>All Work</h1>
+    <ul class="work__list">
+      {
+        work.map((entry) => (
+          <li class="work__item">
+            <a href={`/work/${entry.id}/`} class="work__link">
+              <div class="work__link-top">
+                <h2 class="work__title">{entry.data.title}</h2>
+                <span class="tabular work__year">{entry.data.year}</span>
+              </div>
+              <p class="work__summary">{entry.data.summary}</p>
+              <p class="work__outcome">
+                <span class="tabular work__outcome-value">
+                  {entry.data.outcome.value}
+                </span>
+                <span class="work__outcome-label">
+                  {entry.data.outcome.label}
+                </span>
+              </p>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</Base>
+
+<style>
+  .work {
+    padding-block: var(--space-7) var(--space-6);
+  }
+
+  .work h1 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-6);
+  }
+
+  .work__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .work__item + .work__item {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .work__link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    padding-block: var(--space-5);
+  }
+
+  .work__link-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-3);
+  }
+
+  .work__title {
+    font-size: var(--text-md);
+    font-weight: var(--weight-medium);
+  }
+
+  .work__year {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    white-space: nowrap;
+  }
+
+  .work__summary {
+    color: var(--color-text-muted);
+    margin: var(--space-2) 0 var(--space-3);
+    max-width: 52ch;
+  }
+
+  .work__outcome {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    margin: 0;
+  }
+
+  .work__outcome-value {
+    font-weight: var(--weight-semibold);
+    color: var(--color-accent);
+    font-size: var(--text-sm);
+  }
+
+  .work__outcome-label {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+  }
+</style>
