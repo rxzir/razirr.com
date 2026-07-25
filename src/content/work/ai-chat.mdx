@@ -1,30 +1,61 @@
 ---
-title: "AI Chat Interface"
-role: "Staff Product Designer"
-year: 2025
-summary: "Placeholder summary — one sentence describing the problem and the design's role in solving it. Replace with real copy."
+title: "AI Chatbot – Trading 212"
+role: "Sole designer"
+year: 2026
+summary: "The in-app assistant that helps millions of investors get answers instantly, without leaving the platform."
 outcome:
-  label: "Placeholder metric"
-  value: "42%"
+  label: "Daily active users"
+  value: "14m+"
 order: 1
 ---
 
-**PLACEHOLDER BODY — replace with real case study content.**
+import { Image } from "astro:assets";
+import aiChatProblem from "../../assets/work/ai-chat/ai-chat-problem.png";
+import aiChatEmptyState from "../../assets/work/ai-chat/ai-chat-empty-state.png";
+import aiChatFeature1 from "../../assets/work/ai-chat/ai-chat-feature-1.png";
+import aiChatFeature2 from "../../assets/work/ai-chat/ai-chat-feature-2.png";
+import aiChatFeature3 from "../../assets/work/ai-chat/ai-chat-feature-3.png";
 
-This entry exists only to prove the `work` content collection structure
-renders correctly end to end (frontmatter → schema → list page → detail
-page). None of the copy below is real.
+<video autoplay muted loop playsinline>
+  <source src="/work/ai-chat/ai-chat-hero.mp4" type="video/mp4" />
+</video>
 
-## Context
+The in-app assistant that helps millions of investors get answers instantly, without leaving the platform. Digs into the portfolio and gives personalised and real-time insights.
 
-Placeholder paragraph describing the problem space, the team, and the
-constraints (fintech, AI interface, compliance, etc).
+Users from first-time investors to active traders were regularly leaving the app to understand what was happening with their holdings. A portfolio going down with no explanation, or a stock moving with no context, creates anxiety and erodes trust. AI Chatbot let users ask, in their own words, what's going on and get an answer grounded in their actual portfolio.
 
-## Approach
+<Image src={aiChatProblem} alt="AI Chatbot — portfolio view showing the problem the assistant addresses" />
 
-Placeholder paragraph describing the design process and key decisions.
+## Multiple Entry Points
 
-## Outcome
+Where you enter changes everything, the questions on a stock page ask about that specific stock while on the portfolio page, they ask about your holdings as a whole.
 
-Placeholder paragraph describing the measurable result tied to the
-`outcome` frontmatter stat above.
+## Guided Empty State
+
+Four curated prompts signal what the AI can do and reduce the friction of a first question. They set the right mental model before the user commits to asking anything.
+
+<Image src={aiChatEmptyState} alt="AI Chatbot — guided empty state with curated prompt suggestions" />
+
+<video autoplay muted loop playsinline>
+  <source src="/work/ai-chat/ai-chat-empty-state-demo.mp4" type="video/mp4" />
+</video>
+
+## Transparent Reasoning
+
+While the AI responds, a collapsible "thinking" panel shows the steps it took; fetching news, identifying catalysts, forming an answer. In a financial product, trust isn't a soft metric.
+
+Additional features: rich linked text, source listing, chat history.
+
+<Image src={aiChatFeature1} alt="AI Chatbot — feature detail, chat interaction" />
+<Image src={aiChatFeature2} alt="AI Chatbot — feature detail, chat interaction" />
+<Image src={aiChatFeature3} alt="AI Chatbot — feature detail, chat interaction" />
+
+## By the numbers
+
+- 3m+ users on launch
+- 10 days from idea to live
+- 14m+ daily active users
+
+## Looking ahead
+
+AI Analysis launched as an experimental feature. It was the first time AI had been integrated into the core Trading 212 experience. The design patterns it established like conversation UI, source attribution, and the thinking panel are already forming the foundation for the next iteration: instrument tagging via `$` mention in the input, allowing users to bring any stock into the conversation mid-chat.

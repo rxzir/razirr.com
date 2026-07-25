@@ -91,6 +91,15 @@ const { Content } = await render(entry);
     color: var(--color-text);
   }
 
+  .case-study__body :global(img),
+  .case-study__body :global(video) {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+    margin-block: var(--space-5);
+  }
+
   .case-study__back {
     display: inline-block;
     color: var(--color-text-muted);
