@@ -59,6 +59,11 @@ const stats = [
     <a href="/work/" class="work__all-link">All work &rarr;</a>
   </section>
 
+  <a href="/headroom/" class="building">
+    <span class="building__dot" aria-hidden="true"></span>
+    Currently building Headroom
+  </a>
+
   <section class="contact">
     <!-- PLACEHOLDER: replace with your real contact line -->
     <p>Open to conversations — reach out via the links above.</p>
@@ -188,5 +193,48 @@ const stats = [
 
   .work__all-link:hover {
     color: var(--color-text);
+  }
+
+  .building {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-top: var(--space-2);
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: var(--text-sm);
+    width: fit-content;
+  }
+
+  .building:hover {
+    border-color: var(--color-accent);
+    color: var(--color-text);
+  }
+
+  .building__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    animation: building-pulse 2s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .building__dot {
+      animation: none;
+    }
+  }
+
+  @keyframes building-pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.35;
+    }
   }
 </style>

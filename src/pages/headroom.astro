@@ -1,0 +1,162 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base
+  title="Headroom"
+  description="A native iOS app I'm building, solo, in SwiftUI."
+>
+  <article class="headroom">
+    <header class="headroom__header">
+      <p class="headroom__status">
+        <span class="headroom__status-dot" aria-hidden="true"></span>
+        In development
+      </p>
+      <h1>Headroom</h1>
+      <p class="headroom__subtitle">
+        A native iOS app I'm building, solo, in SwiftUI.
+      </p>
+    </header>
+
+    <div class="headroom__body">
+      <h2>What it does</h2>
+      <p>
+        Headroom shows you what you actually have to spare after your
+        committed expenses, not just your raw balance. Most finance apps show
+        you a number. I wanted to show you a decision.
+      </p>
+
+      <h2>Why native, not cross-platform</h2>
+      <p>
+        I built it in SwiftUI instead of React Native or Expo. I wanted real
+        design craft, widgets, and Face ID, the things you only get by
+        building for the platform instead of around it. I'm also
+        deliberately avoiding Apple's TabView and NavigationStack, since iOS
+        26's Liquid Glass styling overrides custom visual identity if you use
+        the system components. I wanted the app to look like Headroom, not
+        like every other app that shipped this year.
+      </p>
+
+      <h2>The AI architecture</h2>
+      <p>
+        There are three layers, and each one only does what it's actually
+        good at. Deterministic Swift handles the calculations, because money
+        math should never be probabilistic. Apple's on-device Foundation
+        Models handle intent and labeling, fast and private, no network call.
+        Anthropic's API handles the judgment calls that need real-world
+        knowledge, the ones a pattern-matcher on-device can't reason about.
+      </p>
+
+      <h2>Why CSV import, not Open Banking</h2>
+      <p>
+        V1 imports a bank statement as a CSV instead of connecting through an
+        account aggregator. That's not a shortcut, it's a decision: no FCA
+        AISP licensing, no third-party aggregator fees, and I can honestly
+        say your data never leaves your device. I'd rather ship something
+        true and narrow than something that only sounds secure.
+      </p>
+
+      <h2>Where it's at</h2>
+      <p>
+        In active development. I'm currently tweaking the AI response
+        quality and planning the CSV import onboarding flow next.
+      </p>
+
+      <h2>Follow along</h2>
+      <p>
+        The code is public: <a href="https://github.com/rxzir/finance-buddy"
+          >https://github.com/rxzir/finance-buddy</a
+        >
+      </p>
+    </div>
+
+    <a href="/" class="headroom__back">&larr; Back</a>
+  </article>
+</Base>
+
+<style>
+  .headroom__header {
+    padding-block: var(--space-6) var(--space-5);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .headroom__status {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin: 0 0 var(--space-3);
+    color: var(--color-accent);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+  }
+
+  .headroom__status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    animation: headroom-pulse 2s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .headroom__status-dot {
+      animation: none;
+    }
+  }
+
+  @keyframes headroom-pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.35;
+    }
+  }
+
+  .headroom__header h1 {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-2);
+  }
+
+  .headroom__subtitle {
+    color: var(--color-text-muted);
+    margin: 0;
+    max-width: 44ch;
+  }
+
+  .headroom__body {
+    padding-block: var(--space-6);
+  }
+
+  .headroom__body h2 {
+    font-size: var(--text-md);
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-3);
+  }
+
+  .headroom__body h2:first-child {
+    margin-top: 0;
+  }
+
+  .headroom__body p {
+    margin: 0 0 var(--space-4);
+    color: var(--color-text);
+  }
+
+  .headroom__body a {
+    color: var(--color-accent);
+  }
+
+  .headroom__back {
+    display: inline-block;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-6);
+  }
+
+  .headroom__back:hover {
+    color: var(--color-text);
+  }
+</style>
