@@ -1,0 +1,116 @@
+/* Design tokens — greyscale-led, one restrained accent.
+   Values are a starting point; tune freely later. */
+
+:root {
+  /* ---- Greyscale (near-black → near-white) ---- */
+  --grey-950: #0a0a0b;
+  --grey-900: #131316;
+  --grey-800: #1f1f23;
+  --grey-700: #2e2e33;
+  --grey-600: #4a4a52;
+  --grey-500: #6b6b74;
+  --grey-400: #91919a;
+  --grey-300: #b5b5bd;
+  --grey-200: #d6d6db;
+  --grey-100: #ececef;
+  --grey-50: #f7f7f8;
+  --grey-0: #ffffff;
+
+  /* ---- Accent — muted blue, used sparingly ---- */
+  --accent-600: #3654a6;
+  --accent-500: #4d6bc4;
+  --accent-400: #7089d1;
+  --accent-100: #e4e9f7;
+
+  /* ---- Semantic surface / text roles (light mode default) ---- */
+  --color-bg: var(--grey-0);
+  --color-surface: var(--grey-50);
+  --color-border: var(--grey-200);
+  --color-text: var(--grey-950);
+  --color-text-muted: var(--grey-500);
+  --color-accent: var(--accent-500);
+
+  /* ---- Type ---- */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Type scale — 1.25 (major third), 16px base */
+  --text-xs: 0.75rem;    /* 12px */
+  --text-sm: 0.875rem;   /* 14px */
+  --text-base: 1rem;     /* 16px */
+  --text-md: 1.25rem;    /* 20px */
+  --text-lg: 1.563rem;   /* 25px */
+  --text-xl: 1.953rem;   /* 31px */
+  --text-2xl: 2.441rem;  /* 39px */
+  --text-3xl: 3.052rem;  /* 49px */
+
+  --leading-tight: 1.15;
+  --leading-normal: 1.5;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+
+  /* ---- Spacing scale (4px base) ---- */
+  --space-1: 0.25rem;  /* 4px */
+  --space-2: 0.5rem;   /* 8px */
+  --space-3: 0.75rem;  /* 12px */
+  --space-4: 1rem;     /* 16px */
+  --space-5: 1.5rem;   /* 24px */
+  --space-6: 2rem;     /* 32px */
+  --space-7: 3rem;     /* 48px */
+  --space-8: 4rem;     /* 64px */
+  --space-9: 6rem;     /* 96px */
+  --space-10: 8rem;    /* 128px */
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+
+  --max-width: 640px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: var(--grey-950);
+    --color-surface: var(--grey-900);
+    --color-border: var(--grey-700);
+    --color-text: var(--grey-50);
+    --color-text-muted: var(--grey-400);
+    --color-accent: var(--accent-400);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+/* Fintech figures: numerals must line up like a terminal, not proportion-space. */
+.tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}

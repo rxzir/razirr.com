@@ -1,17 +1,179 @@
 ---
+import { getCollection } from "astro:content";
+import Base from "../layouts/Base.astro";
 
+const work = (await getCollection("work")).sort(
+  (a, b) => a.data.order - b.data.order
+);
+
+// PLACEHOLDER: replace with your real numbers — not invented, left blank on purpose.
+const stats = [
+  { value: "—", label: "Years in fintech" },
+  { value: "—", label: "Shipped products" },
+  { value: "—", label: "Teams led" },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Base title="Razi">
+  <section class="hero">
+    <h1>Razi</h1>
+    <p class="hero__positioning">
+      Staff Product Designer, AI interfaces for fintech.
+    </p>
+    <dl class="hero__stats">
+      {
+        stats.map((stat) => (
+          <div class="hero__stat">
+            <dt class="tabular hero__stat-value">{stat.value}</dt>
+            <dd class="hero__stat-label">{stat.label}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </section>
+
+  <section class="work" aria-label="Selected work">
+    <ul class="work__list">
+      {
+        work.map((entry) => (
+          <li class="work__item">
+            <a href={`/work/${entry.id}/`} class="work__link">
+              <div class="work__link-top">
+                <h2 class="work__title">{entry.data.title}</h2>
+                <span class="tabular work__year">{entry.data.year}</span>
+              </div>
+              <p class="work__summary">{entry.data.summary}</p>
+              <p class="work__outcome">
+                <span class="tabular work__outcome-value">
+                  {entry.data.outcome.value}
+                </span>
+                <span class="work__outcome-label">
+                  {entry.data.outcome.label}
+                </span>
+              </p>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="contact">
+    <!-- PLACEHOLDER: replace with your real contact line -->
+    <p>Open to conversations — reach out via the links above.</p>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    padding-block: var(--space-7) var(--space-6);
+  }
+
+  .hero h1 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-2);
+  }
+
+  .hero__positioning {
+    font-size: var(--text-md);
+    color: var(--color-text-muted);
+    margin: 0 0 var(--space-6);
+    max-width: 34ch;
+  }
+
+  .hero__stats {
+    display: flex;
+    gap: var(--space-6);
+    margin: 0;
+  }
+
+  .hero__stat {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .hero__stat-value {
+    font-size: var(--text-lg);
+    font-weight: var(--weight-semibold);
+    margin: 0;
+  }
+
+  .hero__stat-label {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .work {
+    border-top: 1px solid var(--color-border);
+    padding-block: var(--space-6);
+  }
+
+  .work__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .work__item + .work__item {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .work__link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    padding-block: var(--space-5);
+  }
+
+  .work__link-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-3);
+  }
+
+  .work__title {
+    font-size: var(--text-md);
+    font-weight: var(--weight-medium);
+  }
+
+  .work__year {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    white-space: nowrap;
+  }
+
+  .work__summary {
+    color: var(--color-text-muted);
+    margin: var(--space-2) 0 var(--space-3);
+    max-width: 52ch;
+  }
+
+  .work__outcome {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    margin: 0;
+  }
+
+  .work__outcome-value {
+    font-weight: var(--weight-semibold);
+    color: var(--color-accent);
+    font-size: var(--text-sm);
+  }
+
+  .work__outcome-label {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+  }
+
+  .contact {
+    border-top: 1px solid var(--color-border);
+    padding-block: var(--space-6);
+    color: var(--color-text-muted);
+  }
+</style>

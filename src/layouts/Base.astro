@@ -1,0 +1,128 @@
+---
+import "../styles/tokens.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "Staff product designer working on AI interfaces for fintech.",
+} = Astro.props;
+
+const siteName = "Razi";
+const pageTitle = title === siteName ? title : `${title} · ${siteName}`;
+// Astro.site isn't set yet (no production domain configured) — fall back to
+// the request URL so canonical/OG tags don't throw during build.
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="site-header">
+        <a href="/" class="site-header__name">Razi</a>
+        <nav class="site-header__nav">
+          <!-- PLACEHOLDER: replace with your real handles/links -->
+          <a href="#" aria-disabled="true">GitHub</a>
+          <a href="#" aria-disabled="true">LinkedIn</a>
+          <a href="#" aria-disabled="true">Email</a>
+        </nav>
+      </header>
+
+      <main class="site-main">
+        <slot />
+      </main>
+
+      <footer class="site-footer">
+        <span class="tabular">© {new Date().getFullYear()} Razi</span>
+        <!-- PLACEHOLDER: replace with your real handles/links -->
+        <span class="site-footer__meta">Built with Astro</span>
+      </footer>
+    </div>
+  </body>
+</html>
+
+<style>
+  .shell {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--space-5) var(--space-4);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: var(--space-4);
+  }
+
+  .site-header__name {
+    font-weight: var(--weight-semibold);
+    text-decoration: none;
+    font-size: var(--text-md);
+  }
+
+  .site-header__nav {
+    display: flex;
+    gap: var(--space-4);
+  }
+
+  .site-header__nav a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: var(--text-sm);
+  }
+
+  .site-header__nav a:hover {
+    color: var(--color-text);
+  }
+
+  .site-main {
+    flex: 1;
+  }
+
+  .site-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: var(--space-5);
+    border-top: 1px solid var(--color-border);
+    margin-top: var(--space-7);
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+  }
+</style>

@@ -1,0 +1,105 @@
+---
+import { getCollection, render } from "astro:content";
+import Base from "../../layouts/Base.astro";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("work");
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { title, role, year, outcome } = entry.data;
+const { Content } = await render(entry);
+---
+
+<Base title={title} description={entry.data.summary}>
+  <article class="case-study">
+    <header class="case-study__header">
+      <p class="case-study__meta">
+        <span>{role}</span>
+        <span aria-hidden="true">·</span>
+        <span class="tabular">{year}</span>
+      </p>
+      <h1>{title}</h1>
+      <p class="case-study__stat">
+        <span class="tabular case-study__stat-value">{outcome.value}</span>
+        <span class="case-study__stat-label">{outcome.label}</span>
+      </p>
+    </header>
+
+    <div class="case-study__body">
+      <Content />
+    </div>
+
+    <a href="/" class="case-study__back">&larr; Back</a>
+  </article>
+</Base>
+
+<style>
+  .case-study__header {
+    padding-block: var(--space-6) var(--space-5);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .case-study__meta {
+    display: flex;
+    gap: var(--space-2);
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    margin: 0 0 var(--space-3);
+  }
+
+  .case-study__header h1 {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-4);
+  }
+
+  .case-study__stat {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    margin: 0;
+  }
+
+  .case-study__stat-value {
+    font-size: var(--text-lg);
+    font-weight: var(--weight-semibold);
+    color: var(--color-accent);
+  }
+
+  .case-study__stat-label {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+  }
+
+  .case-study__body {
+    padding-block: var(--space-6);
+    line-height: var(--leading-normal);
+  }
+
+  .case-study__body :global(h2) {
+    font-size: var(--text-md);
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-3);
+  }
+
+  .case-study__body :global(p) {
+    margin: 0 0 var(--space-4);
+    color: var(--color-text);
+  }
+
+  .case-study__back {
+    display: inline-block;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-6);
+  }
+
+  .case-study__back:hover {
+    color: var(--color-text);
+  }
+</style>
