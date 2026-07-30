@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
 import Base from "../layouts/Base.astro";
 
 const work = (await getCollection("work", ({ data }) => data.featured)).sort(
@@ -38,19 +39,29 @@ const stats = [
         work.map((entry) => (
           <li class="work__item">
             <a href={`/work/${entry.id}/`} class="work__link">
-              <div class="work__link-top">
-                <h2 class="work__title">{entry.data.title}</h2>
-                <span class="tabular work__year">{entry.data.year}</span>
+              <div class="work__thumb">
+                <Image
+                  src={entry.data.thumbnail}
+                  alt=""
+                  width={480}
+                  height={360}
+                />
               </div>
-              <p class="work__summary">{entry.data.summary}</p>
-              <p class="work__outcome">
-                <span class="tabular work__outcome-value">
-                  {entry.data.outcome.value}
-                </span>
-                <span class="work__outcome-label">
-                  {entry.data.outcome.label}
-                </span>
-              </p>
+              <div class="work__content">
+                <div class="work__link-top">
+                  <h2 class="work__title">{entry.data.title}</h2>
+                  <span class="tabular work__year">{entry.data.year}</span>
+                </div>
+                <p class="work__summary">{entry.data.summary}</p>
+                <p class="work__outcome">
+                  <span class="tabular work__outcome-value">
+                    {entry.data.outcome.value}
+                  </span>
+                  <span class="work__outcome-label">
+                    {entry.data.outcome.label}
+                  </span>
+                </p>
+              </div>
             </a>
           </li>
         ))
@@ -129,10 +140,33 @@ const stats = [
   }
 
   .work__link {
-    display: block;
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-start;
     text-decoration: none;
     color: inherit;
     padding-block: var(--space-5);
+  }
+
+  .work__thumb {
+    flex: 0 0 128px;
+    width: 128px;
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--color-surface);
+  }
+
+  .work__thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .work__content {
+    flex: 1;
+    min-width: 0;
   }
 
   .work__link-top {
@@ -235,6 +269,27 @@ const stats = [
     }
     50% {
       opacity: 0.35;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .hero {
+      padding-block: var(--space-6) var(--space-5);
+    }
+
+    .hero__stats {
+      flex-wrap: wrap;
+      row-gap: var(--space-4);
+    }
+
+    .work__link {
+      flex-direction: column;
+    }
+
+    .work__thumb {
+      width: 100%;
+      flex: none;
+      aspect-ratio: 16 / 9;
     }
   }
 </style>

@@ -3,18 +3,20 @@ import { glob } from "astro/loaders";
 
 const work = defineCollection({
   loader: glob({ pattern: "**/*.mdx", base: "./src/content/work" }),
-  schema: z.object({
-    title: z.string(),
-    role: z.string(),
-    year: z.number(),
-    summary: z.string(),
-    outcome: z.object({
-      label: z.string(),
-      value: z.string(),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      role: z.string(),
+      year: z.number(),
+      summary: z.string(),
+      outcome: z.object({
+        label: z.string(),
+        value: z.string(),
+      }),
+      order: z.number(),
+      featured: z.boolean().default(false),
+      thumbnail: image(),
     }),
-    order: z.number(),
-    featured: z.boolean().default(false),
-  }),
 });
 
 export const collections = { work };
