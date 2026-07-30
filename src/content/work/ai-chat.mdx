@@ -4,8 +4,8 @@ role: "Sole designer"
 year: 2026
 summary: "The in-app assistant that helps millions of investors get answers instantly, without leaving the platform."
 outcome:
-  label: "Daily active users"
-  value: "14m+"
+  label: "Users at launch"
+  value: "3m+"
 order: 1
 featured: true
 thumbnail: "../../assets/work/ai-chat/ai-chat-problem.png"
@@ -18,7 +18,7 @@ import aiChatFeature1 from "../../assets/work/ai-chat/ai-chat-feature-1.png";
 import aiChatFeature2 from "../../assets/work/ai-chat/ai-chat-feature-2.png";
 import aiChatFeature3 from "../../assets/work/ai-chat/ai-chat-feature-3.png";
 
-The in-app assistant that helps millions of investors get answers instantly, without leaving the platform. Digs into the portfolio and gives personalised and real-time insights
+The in-app assistant that helps millions of investors get answers instantly, without leaving the platform. Built and shipped as sole designer, idea to live in ten days.
 
 <video autoplay muted loop playsinline>
   <source src="/work/ai-chat/ai-chat-hero.mp4" type="video/mp4" />
@@ -26,7 +26,7 @@ The in-app assistant that helps millions of investors get answers instantly, wit
 
 ### 3m+
 
-users on launch
+users at launch
 
 ### 10 days
 
@@ -34,21 +34,25 @@ from idea to live
 
 ### 14m+
 
-daily active users
+investors on the platform
 
-## Why did we need this…
+## Why we needed it
 
-Users from first-time investors to active traders were regularly leaving the app to understand what was happening with their holdings. A portfolio going down with no explanation, or a stock moving with no context, creates anxiety and erodes trust. AI Chatbot let users ask, in their own words, what's going on and get an answer grounded in their actual portfolio.
+I kept hearing the same story internally. People were leaving the app to understand what was happening with their portfolio. A holding dropping with no explanation, or a stock moving with no context, made people anxious, and anxious investors don't trust the product. I wanted people to ask, in their own words, what's going on, and get an answer grounded in what they actually hold.
 
 <Image src={aiChatProblem} alt="AI Chatbot — portfolio view" />
 
+## Staying inside the lines
+
+Trading 212 is regulated, so an AI that talks about someone's own money sits inside strict limits. It can explain what happened. It can't tell you what to do about it. That boundary is built into the prompt itself, the instructions constrain what the model is allowed to answer and keep it away from anything that reads as advice. Every response was tested with compliance before launch, so what shipped was actually compliant, not just designed to look that way.
+
 ## Multiple Entry Points
 
-Where you enter changes everything, the questions on a stock page ask about that specific stock while on the portfolio page, they ask about your holdings as a whole.
+Where you open the chat changes what it answers. From a stock page, it answers about that stock. From the portfolio page, it answers about your holdings as a whole. Keeping the two separate keeps every answer anchored to something real instead of turning into a general market opinion.
 
 ## Guided Empty State
 
-Four curated prompts signal what the AI can do and reduce the friction of a first question. They set the right mental model before the user commits to asking anything.
+The empty state carries three preloaded prompts, cut down from an original brief of five. Fewer options meant I could vouch for every single one landing well, rather than spreading trust across prompts I was less sure about. I also pulled the "new chat" button out of the empty state, it's already a new chat, so the button did nothing except take up space. The disclaimer, AI can be wrong, this isn't financial advice, capital is at risk, isn't in the empty state either. I moved it to appear only once someone actually asks a question, so it shows up at the moment it's relevant instead of on a blank screen nobody's read yet.
 
 <Image src={aiChatEmptyState} alt="AI Chatbot — guided empty state" />
 
@@ -58,9 +62,13 @@ Four curated prompts signal what the AI can do and reduce the friction of a firs
 
 ## Transparent Reasoning
 
-While the AI responds, a collapsible "thinking" panel shows the steps it took; fetching news, identifying catalysts, forming an answer. In a financial product, trust isn't a soft metric.
+While the AI answers, a collapsible panel shows what it's doing, fetching news, finding catalysts, forming the answer. I argued for this to sit collapsed by default. Engineering wanted it expanded, they'd built it and wanted it seen. I didn't think watching the model think added anything for most people, so I pushed for collapsed, with the option to expand if you actually want to see it. Every answer also lists its sources, so nothing reads as a verdict from nowhere.
 
-## And much more…
+## Ten days, start to finish
+
+Most of the ten days wasn't spent on screens. It was me and two engineers going back and forth on what was actually possible, the thinking animation, whether to show it at all, expanded or collapsed by default. Alongside that I was designing every edge case, empty states, error states, no-answer states, and sitting with compliance to get every response tested and signed off before it reached a real investor. Ten days from idea to 3M+ users, inside a regulated product, without skipping any of that.
+
+## And much more
 
 <Image src={aiChatFeature1} alt="AI Chatbot — rich linked text" />
 
@@ -74,6 +82,6 @@ Source listing
 
 Chat history
 
-## So, what's next…
+## So, what's next
 
-AI Analysis launched as an experimental feature. It was the first time AI had been integrated into the core Trading 212 experience. The design patterns it established like conversation UI, source attribution, and the thinking panel are already forming the foundation for the next iteration: instrument tagging via $ mention in the input, allowing users to bring any stock into the conversation mid-chat.
+AI Chatbot launched as an experimental feature. It was the first time AI had been integrated into the core Trading 212 experience. The design patterns it established, conversation UI, source attribution, the thinking panel, are already forming the foundation for the next iteration: instrument tagging via $ mention in the input, letting people bring any stock into the conversation mid-chat.
