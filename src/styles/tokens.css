@@ -16,11 +16,15 @@
   --grey-50: #f7f7f8;
   --grey-0: #ffffff;
 
-  /* ---- Accent — muted blue, used sparingly ---- */
-  --accent-600: #3654a6;
-  --accent-500: #4d6bc4;
-  --accent-400: #7089d1;
-  --accent-100: #e4e9f7;
+  /* ---- Accent — cyan, sampled from the live razirr.com brand ----
+     Brand cyan is #70fffa (rgb(112,255,250)), far too light for AA text
+     contrast on a white background, so accent-500/600 are darkened
+     versions of the same hue for light mode. accent-400 is the literal
+     brand color, used as-is in dark mode where it already exceeds AA. */
+  --accent-600: #00524f;
+  --accent-500: #007a76;
+  --accent-400: #70fffa;
+  --accent-100: #ddf8f7;
 
   /* ---- Semantic surface / text roles (light mode default) ---- */
   --color-bg: var(--grey-0);
