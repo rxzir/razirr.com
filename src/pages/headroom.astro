@@ -1,5 +1,24 @@
 ---
+import { Image } from "astro:assets";
 import Base from "../layouts/Base.astro";
+import headroomAiCoach from "../assets/work/headroom/headroom-ai-coach.png";
+import headroomBudgetOverview from "../assets/work/headroom/headroom-budget-overview.png";
+import headroomImportStatements from "../assets/work/headroom/headroom-import-statements.png";
+import headroomAddingItem from "../assets/work/headroom/headroom-adding-item.png";
+import headroomProfileTab from "../assets/work/headroom/headroom-profile-tab.png";
+import headroomDatePicker from "../assets/work/headroom/headroom-date-picker.png";
+import headroomAiThinking from "../assets/work/headroom/headroom-ai-thinking.png";
+import headroomBudgetBarChart from "../assets/work/headroom/headroom-budget-bar-chart.png";
+import headroomLightTheme from "../assets/work/headroom/headroom-light-theme.png";
+
+const otherScreens = [
+  { src: headroomAddingItem, alt: "Headroom — adding an item" },
+  { src: headroomProfileTab, alt: "Headroom — profile tab" },
+  { src: headroomDatePicker, alt: "Headroom — date picker" },
+  { src: headroomAiThinking, alt: "Headroom — AI thinking state" },
+  { src: headroomBudgetBarChart, alt: "Headroom — budget bar chart" },
+  { src: headroomLightTheme, alt: "Headroom — light theme" },
+];
 ---
 
 <Base
@@ -16,6 +35,24 @@ import Base from "../layouts/Base.astro";
       <p class="headroom__subtitle">
         A native iOS app I'm building, solo, in SwiftUI.
       </p>
+      <dl class="headroom__meta">
+        <div class="headroom__meta-row">
+          <dt>Project</dt>
+          <dd>Personal</dd>
+        </div>
+        <div class="headroom__meta-row">
+          <dt>Role</dt>
+          <dd>Solo Builder</dd>
+        </div>
+        <div class="headroom__meta-row">
+          <dt>Medium</dt>
+          <dd>Swift · Supabase · Claude</dd>
+        </div>
+        <div class="headroom__meta-row">
+          <dt>Date</dt>
+          <dd class="tabular">July 2026</dd>
+        </div>
+      </dl>
     </header>
 
     <div class="headroom__body">
@@ -25,6 +62,19 @@ import Base from "../layouts/Base.astro";
         committed expenses, not just your raw balance. Most finance apps show
         you a number. I wanted to show you a decision.
       </p>
+
+      <figure class="headroom__figure">
+        <Image
+          src={headroomBudgetOverview}
+          alt="Headroom budget screen showing safe-to-spend, an income/expense breakdown, and upcoming payments"
+          width={480}
+          height={981}
+        />
+        <figcaption>
+          See all your upcoming payments and a visual breakdown of your
+          income and expenses.
+        </figcaption>
+      </figure>
 
       <h2>Why native, not cross-platform</h2>
       <p>
@@ -47,19 +97,56 @@ import Base from "../layouts/Base.astro";
         knowledge, the ones a pattern-matcher on-device can't reason about.
       </p>
 
-      <h2>Why CSV import, not Open Banking</h2>
+      <figure class="headroom__figure">
+        <Image
+          src={headroomAiCoach}
+          alt="Headroom chat screen with suggested prompts about affording a weekend away or adding a gym membership"
+          width={480}
+          height={981}
+        />
+        <figcaption>
+          Ask about anything and everything about money. See if you can
+          afford a new car or a weekend get away.
+        </figcaption>
+      </figure>
+
+      <h2>Why statement import, not Open Banking</h2>
       <p>
-        V1 imports a bank statement as a CSV instead of connecting through an
-        account aggregator. That's not a shortcut, it's a decision: no FCA
-        AISP licensing, no third-party aggregator fees, and I can honestly
-        say your data never leaves your device. I'd rather ship something
-        true and narrow than something that only sounds secure.
+        V1 imports your bank statement directly, as a CSV or a PDF, since not
+        every bank app exports CSV. That's not a shortcut, it's a decision:
+        no FCA AISP licensing, no third-party aggregator fees, and the scan
+        happens entirely on-device and is discarded afterwards. I'd rather
+        ship something true and narrow than something that only sounds
+        secure.
       </p>
+
+      <figure class="headroom__figure">
+        <Image
+          src={headroomImportStatements}
+          alt="Headroom import statements sheet listing supported UK banks"
+          width={480}
+          height={981}
+        />
+        <figcaption>
+          A quicker way to get started. Statements imported are scanned for
+          incomes, subscriptions and account balance. All on-device and
+          discarded after the scan.
+        </figcaption>
+      </figure>
+
+      <h2>Other screens</h2>
+      <div class="headroom__grid">
+        {
+          otherScreens.map((screen) => (
+            <Image src={screen.src} alt={screen.alt} width={360} height={736} />
+          ))
+        }
+      </div>
 
       <h2>Where it's at</h2>
       <p>
         In active development. I'm currently tweaking the AI response
-        quality and planning the CSV import onboarding flow next.
+        quality and adding quality of life improvements.
       </p>
 
       <h2>Follow along</h2>
@@ -121,8 +208,31 @@ import Base from "../layouts/Base.astro";
 
   .headroom__subtitle {
     color: var(--color-text-muted);
-    margin: 0;
+    margin: 0 0 var(--space-4);
     max-width: 44ch;
+  }
+
+  .headroom__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-5);
+    margin: 0;
+  }
+
+  .headroom__meta-row {
+    display: flex;
+    gap: var(--space-2);
+    margin: 0;
+    font-size: var(--text-sm);
+  }
+
+  .headroom__meta-row dt {
+    color: var(--color-text-muted);
+  }
+
+  .headroom__meta-row dd {
+    margin: 0;
+    color: var(--color-text);
   }
 
   .headroom__body {
@@ -146,6 +256,40 @@ import Base from "../layouts/Base.astro";
 
   .headroom__body a {
     color: var(--color-accent);
+  }
+
+  .headroom__figure {
+    max-width: 420px;
+    margin: var(--space-5) auto var(--space-6);
+  }
+
+  .headroom__figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+  }
+
+  .headroom__figure figcaption {
+    margin-top: var(--space-3);
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    text-align: center;
+  }
+
+  .headroom__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: var(--space-4);
+    max-width: 640px;
+    margin: var(--space-5) auto var(--space-6);
+  }
+
+  .headroom__grid img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
   }
 
   .headroom__back {
